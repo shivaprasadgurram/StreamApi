@@ -5,14 +5,14 @@ import java.util.function.Function;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-public class StreamsMain {
+public class StreamApiMain {
     public static void main(String[] args) {
 
         // Input 1
         List<Integer> input1 = Arrays.asList(10,15,8,49,25,98,32, 98, 32, 15);
 
         // Input 2
-        List<Notes> noteLst = prepareNotes();
+        List<Note> noteLst = prepareNotes();
 
         // Input 3
         List<String> input3_1 = List.of("Java", "C");
@@ -325,11 +325,11 @@ public class StreamsMain {
                 .orElse(-1);
     }
 
-    private static List<String> getNonNullObjects(List<Notes> noteLst) {
+    private static List<String> getNonNullObjects(List<Note> noteLst) {
         return Optional.ofNullable(noteLst)
                 .orElseGet(Collections::emptyList)
                 .stream().filter(Objects::nonNull)
-                .map(Notes::name)
+                .map(Note::name)
                 .toList();
     }
 
@@ -457,14 +457,14 @@ public class StreamsMain {
         return employeeList;
     }
 
-    private static List<Notes> prepareNotes() {
-        List<Notes> notes = new ArrayList<>();
-        notes.add(new Notes(1, "note1", 11));
-        notes.add(new Notes(2, "note2", 22));
-        notes.add(new Notes(3, "note3", 33));
-        notes.add(new Notes(4, "note4", 44));
-        notes.add(new Notes(5, "note5", 55));
-        notes.add(new Notes(6, "note4", 66));
+    private static List<Note> prepareNotes() {
+        List<Note> notes = new ArrayList<>();
+        notes.add(new Note(1, "note1", 11));
+        notes.add(new Note(2, "note2", 22));
+        notes.add(new Note(3, "note3", 33));
+        notes.add(new Note(4, "note4", 44));
+        notes.add(new Note(5, "note5", 55));
+        notes.add(new Note(6, "note4", 66));
         return notes;
     }
 
